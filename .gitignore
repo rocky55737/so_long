@@ -1,2 +1,4 @@
 *.o
-solong
+*.a
+so_long
+a.out
