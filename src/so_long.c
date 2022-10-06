@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+
 void	so_long(int ac, char **av)
 {
-	if (input_err())
+	if (sl_input_err(ac))
 		exit(1);
 }
