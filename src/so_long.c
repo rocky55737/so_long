@@ -14,6 +14,8 @@
 
 void	so_long(int ac, char **av)
 {
+	t_map	*map;
+
 	sl_input_err_handler(ac);
-	
+	map = get_map(av[1]);
 }

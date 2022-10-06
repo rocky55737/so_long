@@ -15,6 +15,7 @@
 
 # include <mlx.h>
 # include <stdlib.h>
+# include <unistd.h>
 # include "../get_next_line/get_next_line.h"
 # include "../libft/libft.h"
 
@@ -26,6 +27,17 @@ typedef struct s_map
 } t_map;
 
 void	sl_input_err_handler(int ac);
+
+void	write_err(char	*err_msg);
+
 void	malloc_null_guard(void *ptr);
+
+t_map	*get_map(char *map_file_path);
+int		map_file_open(char *map_file_path);
+int		get_map_x(char *map_file_path);
+int		get_map_y(char *map_file_path);
+char	**get_map_data(char *map_file_path);
+
+void	map_err_handler(char *map_file_path);
 
 #endif

@@ -73,5 +73,6 @@ char	**get_map_data(char *map_file_path)
 		map_data[cnt] = buffer;
 		buffer = get_next_line(map_fd);
 	}
-	close(map_data);
+	close(map_fd);
+	return (map_data);
 }
