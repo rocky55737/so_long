@@ -1,3 +1,5 @@
+#include "so_long.h"
+
 void		sl_input_err_handler(int ac);
 static int	sl_input_err(int ac);
 
