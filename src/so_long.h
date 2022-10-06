@@ -14,6 +14,9 @@
 # define SO_LONG_H
 
 # include <mlx.h>
+# include <stdlib.h>
+# include "../get_next_line/get_next_line.h"
+# include "../libft/libft.h"
 
 typedef struct s_map
 {
@@ -23,5 +26,6 @@ typedef struct s_map
 } t_map;
 
 void	sl_input_err_handler(int ac);
+void	malloc_null_guard(void *ptr);
 
 #endif

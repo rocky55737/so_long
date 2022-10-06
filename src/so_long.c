@@ -14,6 +14,6 @@
 
 void	so_long(int ac, char **av)
 {
-	if (sl_input_err(ac))
-		exit(1);
+	sl_input_err_handler(ac);
+	
 }
