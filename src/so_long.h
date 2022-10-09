@@ -26,6 +26,15 @@ typedef struct s_map
     int     y;
 } t_map;
 
+typedef struct s_img
+{
+    void    *img;
+    char    *relative_path;
+    int     img_width;
+    int     img_height;
+} t_img;
+
+
 void	sl_input_err_handler(int ac);
 
 void	write_err(char	*err_msg);

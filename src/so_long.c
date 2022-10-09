@@ -23,8 +23,13 @@ void	so_long(int ac, char **av)
 	mlx = mlx_init();
 	mlx_window = mlx_new_window(mlx, map->x * , map->y * , "so_long");
 
+	//img init
+	//
+	//draw_window
 	put_map_to_window(map);
 
-	mlx_hook(mlx_window, )
+	mlx_key_hook(mlx_window, mouse_event,window);
+	mlx_mouse_hook(mlx_window, key_event, window);
+	mlx_loop_hook(mlx_window, update_window, window);
 	mlx_loop(mlx);
 }
