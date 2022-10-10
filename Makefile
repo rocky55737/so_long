@@ -6,7 +6,7 @@
 #    By: rhong <rhong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 16:47:08 by rhong             #+#    #+#              #
-#    Updated: 2022/10/05 17:22:17 by rhong            ###   ########.fr        #
+#    Updated: 2022/10/10 17:14:59 by rhong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ HEADER_B =
 OBJS_B = $(SRCS_B:.c=.o)
 OBJS = $(SRCS:.c=.o)
 
-LIB = ./minilibx_opengl/libmlx.a ./get_next_line/libgnl.a
-LFLAG = -lmlx -framework OpenGL -framework AppKit -lz -lgnl -L./get_next_line
+LIB = ./minilibx_opengl/libmlx.a ./get_next_line/libgnl.a ./libft/libft.a
+LFLAG = -lmlx -framework OpenGL -framework AppKit -lz -lgnl -lft -L./get_next_line -L./libft
 
 ifdef WITH_BONUS
 	TOTAL_OBJS = $(OBJS_B)

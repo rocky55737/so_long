@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_err_handler.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/10 16:55:40 by rhong             #+#    #+#             */
+/*   Updated: 2022/10/10 16:57:21 by rhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void		map_err_handler(char *map_file_path);
@@ -8,7 +20,7 @@ static int	map_is_surrounded_by_wall(char *map_file_path);
 
 void	map_err_handler(char *map_file_path)
 {
-	char *map_err_msg;
+	char	*map_err_msg;
 
 	if (!map_is_rectangle(map_file_path))
 	{
@@ -67,7 +79,7 @@ static int	map_has_all_component(char *map_file_path)
 		while (buffer)
 		{
 			if (ft_strchr(buffer, charset[charset_cnt]) != 0)
-				break;
+				break ;
 			buffer = get_next_line(fd);
 		}
 		close(fd);
@@ -113,7 +125,7 @@ static int	map_is_surrounded_by_wall(char *map_file_path)
 
 	x = get_map_x(map_file_path);
 	y = get_map_y(map_file_path);
-	map_data = get_map_data(map_file_path);
+	map_data = get_map_data(map_file_path, y);
 	x_cnt = 0;
 	while (x_cnt < x)
 	{
