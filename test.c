@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 	for (int i = 0; i < 40; i++)
 	{
 		for (int j = 0; j < 20; j++)
-			mlx_put_image_to_window(mlx, mlx_win, img, i * 50, j * 50);
+			mlx_put_image_to_window(mlx, mlx_win, img, i * 30, j * 30);
 	}
 	arg[0] = mlx;
 	arg[1] = mlx_win;

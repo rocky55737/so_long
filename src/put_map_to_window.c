@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:54:25 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/11 18:27:57 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/11 19:58:50 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	put_map_to_window(t_game_data *g_d)
 	{
 		while (x < g_d->map->x)
 		{
-			mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->img[0].img, x * 50, y * 50);
+			mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->imgs[0].img_ptr, x * 50, y * 50);
 			x++;
 		}
 		y++;
@@ -49,20 +49,21 @@ void	put_map_to_window(t_game_data *g_d)
 
 void	put_exit_to_window(t_game_data *g_d, int x, int y)
 {
-	mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->img[2].img, x * 50, y * 50);
+	mlx_put_image_to_window(g_d->mlx, g_d->win, \
+	g_d->imgs[2].img_ptr, x * 50, y * 50);
 }
 
 void	put_wall_to_window(t_game_data *g_d, int x, int y)
 {
-	mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->img[1].img, x * 50, y * 50);
+	mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->imgs[1].img_ptr, x * 50, y * 50);
 }
 
 void	put_collectible_to_window(t_game_data *g_d, int x, int y)
 {
-	mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->img[3].img, x * 50, y * 50);
+	mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->imgs[3].img_ptr, x * 50, y * 50);
 }
 
 void	put_player_to_window(t_game_data *g_d, int x, int y)
 {
-	mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->img[4].img, x * 50, y * 50);
+	mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->imgs[4].img_ptr, x * 50, y * 50);
 }

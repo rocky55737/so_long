@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:32 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/11 17:58:14 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/11 19:57:41 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_map
 
 typedef struct s_img
 {
-	void	*img;
+	void	*img_ptr;
 	char	*relative_path;
 	int		img_width;
 	int		img_height;
@@ -38,7 +38,7 @@ typedef struct s_img
 typedef struct s_game_data
 {
 	t_map	*map;
-	t_img	img[5];
+	t_img	imgs[5];
 	void	*mlx;
 	void	*win;
 }	t_game_data;
