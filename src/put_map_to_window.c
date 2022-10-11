@@ -22,6 +22,7 @@ void	put_map_to_window(t_game_data *g_d)
 	y = 0;
 	while (y < g_d->map->y)
 	{
+		x = 0;
 		while (x < g_d->map->x)
 		{
 			mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->imgs[0].img_ptr, x * 50, y * 50);
@@ -31,6 +32,7 @@ void	put_map_to_window(t_game_data *g_d)
 	}
 	while (y < g_d->map->y)
 	{
+		x = 0;
 		while (x < g_d->map->x)
 		{
 			if (g_d->map->map_data[x][y] == '1')
