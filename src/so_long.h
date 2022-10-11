@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:32 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/10 16:45:56 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/11 17:58:14 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ typedef struct s_img
 	int		img_height;
 }	t_img;
 
+typedef struct s_game_data
+{
+	t_map	*map;
+	t_img	img[5];
+	void	*mlx;
+	void	*win;
+}	t_game_data;
 
 void	sl_input_err_handler(int ac);
 
@@ -49,5 +56,9 @@ int		get_map_y(char *map_file_path);
 char	**get_map_data(char *map_file_path, int map_y);
 
 void	map_err_handler(char *map_file_path);
+
+void	destroy_game(t_game_data *g_data);
+
+int		button_event_handler(int keycode, t_game_data *g_data);
 
 #endif
