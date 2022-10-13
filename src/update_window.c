@@ -24,6 +24,8 @@ void	move_character(int keycode, t_game_data *g_data)
 {
 	if (keycode == 65)
 	{
+		if (g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) - 1] != 'E')
+			destroy_game(g_data);
 		if (g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) - 1] != '1')
 			{
 				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data)] = '0';
@@ -32,6 +34,8 @@ void	move_character(int keycode, t_game_data *g_data)
 	}
 	if (keycode == 68)
 	{
+		if (g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) + 1] != 'E')
+			destroy_game(g_data);
 		if (g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) + 1] != '1')
 			{
 				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data)] = '0';
@@ -40,6 +44,8 @@ void	move_character(int keycode, t_game_data *g_data)
 	}
 	if (keycode == 83)
 	{
+		if (g_data->map->map_data[get_p_y(g_data) - 1][get_p_x(g_data)] != 'E')
+			destroy_game(g_data);
 		if (g_data->map->map_data[get_p_y(g_data) - 1][get_p_x(g_data)] != '1')
 			{
 				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data)] = '0';
@@ -48,6 +54,8 @@ void	move_character(int keycode, t_game_data *g_data)
 	}
 	if (keycode == 87)
 	{
+		if (g_data->map->map_data[get_p_y(g_data) + 1][get_p_x(g_data)] != 'E')
+			destroy_game(g_data);
 		if (g_data->map->map_data[get_p_y(g_data) + 1][get_p_x(g_data)] != '1')
 			{
 				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data)] = '0';
