@@ -60,5 +60,6 @@ void	map_err_handler(char *map_file_path);
 void	destroy_game(t_game_data *g_data);
 
 int		button_event_handler(int keycode, t_game_data *g_data);
+void	set_imgs(t_game_data *g_d);
 
 #endif

@@ -22,14 +22,12 @@ void	so_long(int ac, char **av)
 	g_data->map = get_map(av[1]);
 	g_data->mlx = mlx_init();
 	g_data->win = mlx_new_window(g_data->mlx, g_data->map->x * 50, g_data->map->y * 50, "so_long");
-
-	//get img
-	//
+	//set_imgs
+	set_imgs(g_data);
 	//draw_window
-	put_map_to_window(map);
-
-	mlx_key_hook(mlx_window, mouse_event,window);
-	mlx_mouse_hook(mlx_window, key_event, window);
-	mlx_loop_hook(mlx_window, update_window, window);
-	mlx_loop(mlx);
+	put_map_to_window(g_data->map);
+	mlx_key_hook(g_data->win, button_event_handler, g_data);
+	mlx_hook(g_data->win, 17, 0, destroy_game, g_data);
+	mlx_loop_hook(g_data->mlx, update_window, g_data);
+	mlx_loop(g_data->mlx);
 }
