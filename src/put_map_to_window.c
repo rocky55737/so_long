@@ -6,13 +6,17 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:54:25 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/11 19:58:50 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/14 18:07:13 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 void	put_map_to_window(t_game_data *g_d);
+void	put_exit_to_window(t_game_data *g_d, int x, int y);
+void	put_wall_to_window(t_game_data *g_d, int x, int y);
+void	put_collectible_to_window(t_game_data *g_d, int x, int y);
+void	put_player_to_window(t_game_data *g_d, int x, int y);
 
 void	put_map_to_window(t_game_data *g_d)
 {

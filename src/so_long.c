@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:26:37 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/11 18:14:37 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/14 18:09:35 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	so_long(int ac, char **av)
 	//set_imgs
 	set_imgs(g_data);
 	//draw_window
-	put_map_to_window(g_data->map);
+	put_map_to_window(g_data);
 	mlx_key_hook(g_data->win, button_event_handler, g_data);
 	mlx_hook(g_data->win, 17, 0, destroy_game, g_data);
 	mlx_loop_hook(g_data->mlx, update_window, g_data);

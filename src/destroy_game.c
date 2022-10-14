@@ -6,13 +6,13 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:35:28 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/11 17:22:46 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/14 18:08:46 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	destroy_game(t_game_data *g_data)
+int	destroy_game(t_game_data *g_data)
 {
 	mlx_destroy_window(g_data->mlx, g_data->win);
 	exit(0);

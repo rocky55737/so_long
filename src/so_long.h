@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:32 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/11 19:57:41 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/14 19:16:50 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdio.h>
 # include "../get_next_line/get_next_line.h"
 # include "../libft/libft.h"
 
@@ -57,9 +58,16 @@ char	**get_map_data(char *map_file_path, int map_y);
 
 void	map_err_handler(char *map_file_path);
 
-void	destroy_game(t_game_data *g_data);
+int		destroy_game(t_game_data *g_data);
 
 int		button_event_handler(int keycode, t_game_data *g_data);
 void	set_imgs(t_game_data *g_d);
+
+void	put_map_to_window(t_game_data *g_d);
+int		update_window(int keycode, t_game_data *g_data);
+
+char	*trim_nl(char *str);
+
+void	so_long(int ac, char **av);
 
 #endif

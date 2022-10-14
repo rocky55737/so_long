@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:55:40 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/10 16:57:21 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/14 19:23:47 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ static int	map_is_surrounded_by_wall(char *map_file_path);
 
 void	map_err_handler(char *map_file_path)
 {
-	char	*map_err_msg;
-
 	if (!map_is_rectangle(map_file_path))
 	{
 		write_err("so_long: map is not rectangle\n");
@@ -55,7 +53,8 @@ static int	map_is_rectangle(char *map_file_path)
 	buffer = get_next_line(fd);
 	while (buffer)
 	{
-		if (ft_strlen(buffer) != x)
+		printf("%s %d", trim_nl(buffer), x);
+		if (ft_strlen(trim_nl(buffer)) != (size_t)x)
 			return (0);
 		buffer = get_next_line(fd);
 	}
