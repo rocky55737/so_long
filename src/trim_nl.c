@@ -14,10 +14,8 @@
 
 char	*trim_nl(char *str)
 {
-	int		cnt;
 	char	*ret;
 
-	cnt = 0;
 	ret = str;
 	if (str[ft_strlen(str) - 1] == '\n')
 	{
