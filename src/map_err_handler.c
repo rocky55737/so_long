@@ -50,13 +50,13 @@ static int	map_is_rectangle(char *map_file_path)
 
 	x = get_map_x(map_file_path);
 	fd = map_file_open(map_file_path);
-	buffer = get_next_line(fd);
+	buffer = trim_nl(get_next_line(fd));
 	while (buffer)
 	{
-		printf("%s %d", trim_nl(buffer), x);
-		if (ft_strlen(trim_nl(buffer)) != (size_t)x)
+		printf("%s %d", buffer, x);
+		if (ft_strlen(buffer) != (size_t)x)
 			return (0);
-		buffer = get_next_line(fd);
+		buffer = trim_nl(get_next_line(fd));
 	}
 	close(fd);
 	return (1);

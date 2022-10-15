@@ -44,7 +44,7 @@ typedef struct s_game_data
 	void	*win;
 }	t_game_data;
 
-void	sl_input_err_handler(int ac);
+void	sl_input_err_handler(int ac, char **av);
 
 void	write_err(char	*err_msg);
 
