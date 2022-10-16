@@ -42,6 +42,7 @@ typedef struct s_game_data
 	t_img	imgs[5];
 	void	*mlx;
 	void	*win;
+	int		mov_cnt;
 }	t_game_data;
 
 void	sl_input_err_handler(int ac, char **av);

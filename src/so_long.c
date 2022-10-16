@@ -22,6 +22,7 @@ void	so_long(int ac, char **av)
 	g_data->map = get_map(av[1]);
 	g_data->mlx = mlx_init();
 	g_data->win = mlx_new_window(g_data->mlx, g_data->map->x * 50, g_data->map->y * 50, "so_long");
+	g_data->mov_cnt = 0;
 	//set_imgs
 	set_imgs(g_data);
 	//draw_window
