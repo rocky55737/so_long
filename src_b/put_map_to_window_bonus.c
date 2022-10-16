@@ -12,13 +12,13 @@
 
 #include "so_long_bonus.h"
 
-void	put_map_to_window(t_game_data *g_d);
+void	put_map_to_window(int keycode, t_game_data *g_d);
 void	put_exit_to_window(t_game_data *g_d, int x, int y);
 void	put_wall_to_window(t_game_data *g_d, int x, int y);
 void	put_collectible_to_window(t_game_data *g_d, int x, int y);
-void	put_player_to_window(t_game_data *g_d, int x, int y);
+void	put_player_to_window(t_game_data *g_d, int x, int y, int keycode);
 
-void	put_map_to_window(t_game_data *g_d)
+void	put_map_to_window(int keycode, t_game_data *g_d)
 {
 	int	x;
 	int	y;
@@ -46,7 +46,9 @@ void	put_map_to_window(t_game_data *g_d)
 			else if (g_d->map->map_data[x][y] == 'E')
 				put_exit_to_window(g_d, x, y);
 			else if (g_d->map->map_data[x][y] == 'P')
-				put_player_to_window(g_d, x, y);
+				put_player_to_window(g_d, x, y, keycode);
+			else if (g_d->map->map_data[x][y] == 'M')
+				put_monster_to_window(g_d, x, y);
 			x++;
 		}
 		y++;
@@ -69,7 +71,14 @@ void	put_collectible_to_window(t_game_data *g_d, int x, int y)
 	mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->imgs[3].img_ptr, x * 50, y * 50);
 }
 
-void	put_player_to_window(t_game_data *g_d, int x, int y)
+void	put_player_to_window(t_game_data *g_d, int x, int y, int keycode)
 {
-	mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->imgs[4].img_ptr, x * 50, y * 50);
+	if (keycode == 65)
+		mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->p_imgs[4].img_ptr, x * 50, y * 50);
+	else if (keycode == 68)
+		mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->p_imgs[6].img_ptr, x * 50, y * 50);
+	else if (keycode == 83)
+		mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->p_imgs[0].img_ptr, x * 50, y * 50);
+	else if (keycode == 87)
+		mlx_put_image_to_window(g_d->mlx, g_d->win, g_d->p_imgs[2].img_ptr, x * 50, y * 50);
 }

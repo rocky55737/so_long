@@ -25,6 +25,7 @@ void	so_long(int ac, char **av)
 	g_data->mov_cnt = 0;
 	//set_imgs
 	set_imgs(g_data);
+	set_p_imgs(g_data);
 	//draw_window
 	put_map_to_window(g_data);
 	mlx_key_hook(g_data->win, button_event_handler, g_data);
