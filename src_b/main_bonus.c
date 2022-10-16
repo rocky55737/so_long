@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_err.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 18:30:14 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/10 18:30:19 by rhong            ###   ########.fr       */
+/*   Created: 2022/10/05 17:24:05 by rhong             #+#    #+#             */
+/*   Updated: 2022/10/14 18:03:50 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
-void	write_err(char	*err_msg)
+int	main(int ac, char **av)
 {
-	write(2, err_msg, ft_strlen(err_msg));
+	so_long(ac, av);
+	return (0);
 }

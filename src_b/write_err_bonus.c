@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc_null_guard.c                                :+:      :+:    :+:   */
+/*   write_err.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 16:53:30 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/10 16:53:34 by rhong            ###   ########.fr       */
+/*   Created: 2022/10/10 18:30:14 by rhong             #+#    #+#             */
+/*   Updated: 2022/10/10 18:30:19 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
-void	malloc_null_guard(void *ptr)
+void	write_err(char	*err_msg)
 {
-	if (ptr == 0)
-	{
-		perror("null guard: ");
-		exit(1);
-	}
+	write(2, err_msg, ft_strlen(err_msg));
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int		update_window(int keycode, t_game_data *g_data);
 int		get_p_x(t_game_data *g_data);

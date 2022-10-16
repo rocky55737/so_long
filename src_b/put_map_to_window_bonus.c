@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	put_map_to_window(t_game_data *g_d);
 void	put_exit_to_window(t_game_data *g_d, int x, int y);
