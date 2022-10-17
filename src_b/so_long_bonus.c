@@ -15,6 +15,7 @@
 void	so_long(int ac, char **av)
 {
 	t_game_data	*g_data;
+	int			t_cnt;
 
 	sl_input_err_handler(ac, av);
 	g_data = (t_game_data *)malloc(sizeof(t_game_data));
@@ -25,9 +26,22 @@ void	so_long(int ac, char **av)
 	g_data->map->x * 32, g_data->map->y * 32, "so_long");
 	g_data->mov_cnt = 0;
 	g_data->p_state = 0;
+	g_data->m_state = 0;
 	set_imgs(g_data);
 	set_p_imgs(g_data);
 	put_map_to_window(g_data);
+	t_cnt = 0;
+	while (true)
+	{
+		if (t_cnt < 10000)
+			g_data->m_state = (g_data->m_state + 1) % 2;
+		else
+		{
+			monster_move_update(g_data);
+			t_cnt = 0;
+		}
+		t_cnt++;	
+	}
 	mlx_key_hook(g_data->win, button_event_handler, g_data);
 	mlx_hook(g_data->win, 17, 0, destroy_game, g_data);
 	mlx_loop(g_data->mlx);

@@ -42,6 +42,7 @@ typedef struct s_game_data
 	t_img	imgs[5];
 	t_img	p_imgs[8];
 	int		p_state;
+	int		m_state;
 	void	*mlx;
 	void	*win;
 	int		mov_cnt;
