@@ -42,6 +42,10 @@ void	move_left(t_game_data *g_data)
 		if (clear_the_game(g_data))
 			destroy_game(g_data);
 	}
+	else if (g_data->map->map_data[p_y][p_x - 1] == 'M')
+	{
+		destroy_game(g_data);
+	}
 	else if (g_data->map->map_data[p_y][p_x - 1] != '1')
 	{
 		g_data->map->map_data[p_y][p_x] = '0';
@@ -64,6 +68,10 @@ void	move_right(t_game_data *g_data)
 	{
 		if (clear_the_game(g_data))
 			destroy_game(g_data);
+	}
+	else if (g_data->map->map_data[p_y][p_x + 1] == 'M')
+	{
+		destroy_game(g_data);
 	}
 	else if (g_data->map->map_data[p_y][p_x + 1] != '1')
 	{
@@ -88,6 +96,10 @@ void	move_up(t_game_data *g_data)
 		if (clear_the_game(g_data))
 			destroy_game(g_data);
 	}
+	else if (g_data->map->map_data[p_y - 1][p_x] == 'M')
+	{
+		destroy_game(g_data);
+	}
 	else if (g_data->map->map_data[p_y - 1][p_x] != '1')
 	{
 		g_data->map->map_data[p_y][p_x] = '0';
@@ -110,6 +122,10 @@ void	move_down(t_game_data *g_data)
 	{
 		if (clear_the_game(g_data))
 			destroy_game(g_data);
+	}
+	else if (g_data->map->map_data[p_y + 1][p_x] == 'M')
+	{
+		destroy_game(g_data);
 	}
 	else if (g_data->map->map_data[p_y + 1][p_x] != '1')
 	{
