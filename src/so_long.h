@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:32 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/17 18:11:09 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/17 20:35:43 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,11 @@ char	*trim_nl(char *str);
 
 void	so_long(int ac, char **av);
 void	img_err_handler(t_game_data *g_d);
+
+int		get_p_x(t_game_data *g_data);
+int		get_p_y(t_game_data *g_data);
+void	move_character(int keycode, t_game_data *g_data);
+
+int		clear_the_game(t_game_data *g_d);
 
 #endif
