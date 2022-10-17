@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void		map_err_handler(char *map_file_path);
 static int	map_is_rectangle(char *map_file_path);

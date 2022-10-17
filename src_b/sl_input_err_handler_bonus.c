@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void		sl_input_err_handler(int ac, char **av);
 static int	sl_input_count_err(int ac);

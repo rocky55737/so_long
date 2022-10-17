@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   trim_nl.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 17:24:05 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/14 18:03:50 by rhong            ###   ########.fr       */
+/*   Created: 2022/10/14 18:39:06 by rhong             #+#    #+#             */
+/*   Updated: 2022/10/17 17:40:00 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
-int	main(int ac, char **av)
+char	*trim_nl(char *str)
 {
-	so_long(ac, av);
-	return (0);
+	char	*ret;
+
+	ret = str;
+	if (!str)
+		return (0);
+	if (str[ft_strlen(str) - 1] == '\n')
+	{
+		ret = ft_substr(str, 0, ft_strlen(str) - 1);
+		free(str);
+		return (ret);
+	}
+	return (ret);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	move_character(int keycode, t_game_data *g_data);
 void	move_left(t_game_data *g_data);

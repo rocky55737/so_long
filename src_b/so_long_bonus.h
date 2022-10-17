@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../minilibx_opengl/mlx.h"
 # include <stdlib.h>
@@ -40,6 +40,8 @@ typedef struct s_game_data
 {
 	t_map	*map;
 	t_img	imgs[5];
+	t_img	p_imgs[8];
+	int		p_state;
 	void	*mlx;
 	void	*win;
 	int		mov_cnt;
@@ -63,6 +65,7 @@ int		destroy_game(t_game_data *g_data);
 
 int		button_event_handler(int keycode, t_game_data *g_data);
 void	set_imgs(t_game_data *g_d);
+void	set_p_imgs(t_game_data *g_d);
 
 void	put_map_to_window(t_game_data *g_d);
 int		update_window(int keycode, t_game_data *g_data);

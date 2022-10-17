@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	so_long(int ac, char **av)
 {
@@ -24,7 +24,9 @@ void	so_long(int ac, char **av)
 	g_data->win = mlx_new_window(g_data->mlx, \
 	g_data->map->x * 32, g_data->map->y * 32, "so_long");
 	g_data->mov_cnt = 0;
+	g_data->p_state = 0;
 	set_imgs(g_data);
+	set_p_imgs(g_data);
 	put_map_to_window(g_data);
 	mlx_key_hook(g_data->win, button_event_handler, g_data);
 	mlx_hook(g_data->win, 17, 0, destroy_game, g_data);

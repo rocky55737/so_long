@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 t_map	*get_map(char *map_file_path);
 int		map_file_open(char *map_file_path);

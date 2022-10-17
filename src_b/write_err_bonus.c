@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trim_nl.c                                          :+:      :+:    :+:   */
+/*   write_err.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 18:39:06 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/17 17:40:00 by rhong            ###   ########.fr       */
+/*   Created: 2022/10/10 18:30:14 by rhong             #+#    #+#             */
+/*   Updated: 2022/10/10 18:30:19 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
-char	*trim_nl(char *str)
+void	write_err(char	*err_msg)
 {
-	char	*ret;
-
-	ret = str;
-	if (!str)
-		return (0);
-	if (str[ft_strlen(str) - 1] == '\n')
-	{
-		ret = ft_substr(str, 0, ft_strlen(str) - 1);
-		free(str);
-		return (ret);
-	}
-	return (ret);
+	write(2, err_msg, ft_strlen(err_msg));
 }

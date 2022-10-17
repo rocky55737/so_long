@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	put_map_to_window(t_game_data *g_d);
 void	put_elements(t_game_data *g_d);
@@ -55,7 +55,7 @@ void	put_elements(t_game_data *g_d)
 			else if (g_d->map->map_data[y][x] == 'E')
 				mlx_put_image_to_window(g_d->mlx, g_d->win, \
 				g_d->imgs[3].img_ptr, x * 32, y * 32);
-			else if (g_d->map->map_data[y][x] == 'P')
+			else if (g_d->map->map_data[y][x] == 'M')
 				mlx_put_image_to_window(g_d->mlx, g_d->win, \
 				g_d->imgs[4].img_ptr, x * 32, y * 32);
 			x++;
