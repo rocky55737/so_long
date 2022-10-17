@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "so_long.h"
 
 int	destroy_game(t_game_data *g_data)
 {

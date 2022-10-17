@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   button_event_handler.c                             :+:      :+:    :+:   */
+/*   trim_nl.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 17:19:43 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/14 18:02:45 by rhong            ###   ########.fr       */
+/*   Created: 2022/10/14 18:39:06 by rhong             #+#    #+#             */
+/*   Updated: 2022/10/17 17:40:00 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "so_long.h"
 
-int	button_event_handler(int keycode, t_game_data *g_data)
+char	*trim_nl(char *str)
 {
-	if (keycode == 27)
-		destroy_game(g_data);
-	if (keycode == 65 || keycode == 68 || keycode == 83 || keycode == 87)
-		update_window(keycode, g_data);
-	return (0);
+	char	*ret;
+
+	ret = str;
+	if (!str)
+		return (0);
+	if (str[ft_strlen(str) - 1] == '\n')
+	{
+		ret = ft_substr(str, 0, ft_strlen(str) - 1);
+		free(str);
+		return (ret);
+	}
+	return (ret);
 }

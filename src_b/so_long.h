@@ -6,12 +6,12 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:32 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/14 19:16:50 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/17 20:35:43 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_BONUS_H
-# define SO_LONG_BONUS_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include "../minilibx_opengl/mlx.h"
 # include <stdlib.h>
@@ -32,15 +32,14 @@ typedef struct s_img
 {
 	void	*img_ptr;
 	char	*relative_path;
-	int		img_width;
-	int		img_height;
+	int		img_w;
+	int		img_h;
 }	t_img;
 
 typedef struct s_game_data
 {
 	t_map	*map;
 	t_img	imgs[5];
-	t_img	p_imgs[4];
 	void	*mlx;
 	void	*win;
 	int		mov_cnt;
@@ -65,13 +64,18 @@ int		destroy_game(t_game_data *g_data);
 int		button_event_handler(int keycode, t_game_data *g_data);
 void	set_imgs(t_game_data *g_d);
 
-void	put_map_to_window(int keycode, t_game_data *g_d);
+void	put_map_to_window(t_game_data *g_d);
 int		update_window(int keycode, t_game_data *g_data);
 
 char	*trim_nl(char *str);
 
 void	so_long(int ac, char **av);
+void	img_err_handler(t_game_data *g_d);
 
-void	set_p_imgs(t_game_data *g_d);
+int		get_p_x(t_game_data *g_data);
+int		get_p_y(t_game_data *g_data);
+void	move_character(int keycode, t_game_data *g_data);
+
+int		clear_the_game(t_game_data *g_d);
 
 #endif

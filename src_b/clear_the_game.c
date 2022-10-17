@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trim_nl.c                                          :+:      :+:    :+:   */
+/*   clear_the_game.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 18:39:06 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/14 18:44:06 by rhong            ###   ########.fr       */
+/*   Created: 2022/10/17 20:32:24 by rhong             #+#    #+#             */
+/*   Updated: 2022/10/17 20:35:09 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "so_long.h"
 
-char	*trim_nl(char *str)
+int	clear_the_game(t_game_data *g_d)
 {
-	char	*ret;
+	int	x;
+	int	y;
 
-	ret = str;
-	if (str[ft_strlen(str) - 1] == '\n')
+	y = 0;
+	while (y < g_d->map->y)
 	{
-		ret = ft_substr(str, 0, ft_strlen(str) - 1);
-		free(str);
-		return (ret);
+		x = 0;
+		while (x < g_d->map->x)
+		{
+			if (g_d->map->map_data[y][x] == 'C')
+				return (0);
+			x++;
+		}
+		y++;
 	}
-	return (ret);
+	return (1);
 }

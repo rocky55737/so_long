@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   malloc_null_guard.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 17:24:05 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/14 18:03:50 by rhong            ###   ########.fr       */
+/*   Created: 2022/10/10 16:53:30 by rhong             #+#    #+#             */
+/*   Updated: 2022/10/10 16:53:34 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "so_long.h"
 
-int	main(int ac, char **av)
+void	malloc_null_guard(void *ptr)
 {
-	so_long(ac, av);
-	return (0);
+	if (ptr == 0)
+	{
+		perror("null guard: ");
+		exit(1);
+	}
 }
