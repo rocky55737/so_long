@@ -46,6 +46,10 @@ void	move_left(t_game_data *g_data)
 	{
 		g_data->map->map_data[p_y][p_x] = '0';
 		g_data->map->map_data[p_y][p_x - 1] = 'P';
+		if (g_data->p_state != 4)
+			g_data->p_state = 4;
+		else
+			g_data->p_state = 5;
 	}
 }
 
@@ -65,6 +69,10 @@ void	move_right(t_game_data *g_data)
 	{
 		g_data->map->map_data[p_y][p_x] = '0';
 		g_data->map->map_data[p_y][p_x + 1] = 'P';
+		if (g_data->p_state != 6)
+			g_data->p_state = 6;
+		else
+			g_data->p_state = 7;
 	}
 }
 
@@ -84,6 +92,10 @@ void	move_up(t_game_data *g_data)
 	{
 		g_data->map->map_data[p_y][p_x] = '0';
 		g_data->map->map_data[p_y - 1][p_x] = 'P';
+		if (g_data->p_state != 2)
+			g_data->p_state = 2;
+		else
+			g_data->p_state = 3;
 	}
 }
 
@@ -103,5 +115,9 @@ void	move_down(t_game_data *g_data)
 	{
 		g_data->map->map_data[p_y][p_x] = '0';
 		g_data->map->map_data[p_y + 1][p_x] = 'P';
+		if (g_data->p_state != 0)
+			g_data->p_state = 0;
+		else
+			g_data->p_state = 1;
 	}
 }
