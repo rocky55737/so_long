@@ -6,7 +6,7 @@
 #    By: rhong <rhong@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 16:47:08 by rhong             #+#    #+#              #
-#    Updated: 2022/10/14 19:23:31 by rhong            ###   ########.fr        #
+#    Updated: 2022/10/17 18:12:17 by rhong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = cc
 NAME = so_long
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ./src/button_event_handler.c ./src/destroy_game.c ./src/get_map.c ./src/main.c ./src/malloc_null_guard.c ./src/map_err_handler.c ./src/put_map_to_window.c ./src/set_imgs.c ./src/sl_input_err_handler.c ./src/so_long.c ./src/trim_nl.c ./src/update_window.c ./src/write_err.c
+SRCS = ./src/button_event_handler.c ./src/destroy_game.c ./src/get_map.c ./src/img_err_handler.c ./src/main.c ./src/malloc_null_guard.c ./src/map_err_handler.c ./src/put_map_to_window.c ./src/set_imgs.c ./src/sl_input_err_handler.c ./src/so_long.c ./src/trim_nl.c ./src/update_window.c ./src/write_err.c
 SRCS_B =
 
 HEADER = ./src/so_long.h

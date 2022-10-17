@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:32 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/14 19:16:50 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/17 18:11:09 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct s_img
 {
 	void	*img_ptr;
 	char	*relative_path;
-	int		img_width;
-	int		img_height;
+	int		img_w;
+	int		img_h;
 }	t_img;
 
 typedef struct s_game_data
@@ -70,5 +70,6 @@ int		update_window(int keycode, t_game_data *g_data);
 char	*trim_nl(char *str);
 
 void	so_long(int ac, char **av);
+void	img_err_handler(t_game_data *g_d);
 
 #endif

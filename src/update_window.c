@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:30:40 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/14 18:12:05 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/17 19:40:38 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	move_character(int keycode, t_game_data *g_data);
 
 int	update_window(int keycode, t_game_data *g_data)
 {
-	if (keycode == 27)
-		destroy_game(g_data);
 	move_character(keycode, g_data);
 	put_map_to_window(g_data);
 	g_data->mov_cnt++;
@@ -30,44 +28,49 @@ int	update_window(int keycode, t_game_data *g_data)
 
 void	move_character(int keycode, t_game_data *g_data)
 {
-	if (keycode == 65)
+	int	p_x;
+	int	p_y;
+
+	p_x = get_p_x(g_data);
+	p_y = get_p_y(g_data);
+	if (keycode == 0)
 	{
-		if (g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) - 1] != 'E')
+		if (g_data->map->map_data[p_y][p_x - 1] == 'E')
 			destroy_game(g_data);
-		if (g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) - 1] != '1')
+		if (g_data->map->map_data[p_y][p_x - 1] != '1')
 			{
-				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data)] = '0';
-				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) - 1] = 'P';
+				g_data->map->map_data[p_y][p_x] = '0';
+				g_data->map->map_data[p_y][p_x - 1] = 'P';
 			}
 	}
-	if (keycode == 68)
+	if (keycode == 2)
 	{
-		if (g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) + 1] != 'E')
+		if (g_data->map->map_data[p_y][p_x + 1] == 'E')
 			destroy_game(g_data);
-		if (g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) + 1] != '1')
+		if (g_data->map->map_data[p_y][p_x + 1] != '1')
 			{
-				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data)] = '0';
-				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data) + 1] = 'P';
+				g_data->map->map_data[p_y][p_x] = '0';
+				g_data->map->map_data[p_y][p_x + 1] = 'P';
 			}
 	}
-	if (keycode == 83)
+	if (keycode == 13)
 	{
-		if (g_data->map->map_data[get_p_y(g_data) - 1][get_p_x(g_data)] != 'E')
+		if (g_data->map->map_data[p_y - 1][p_x] == 'E')
 			destroy_game(g_data);
-		if (g_data->map->map_data[get_p_y(g_data) - 1][get_p_x(g_data)] != '1')
+		if (g_data->map->map_data[p_y - 1][p_x] != '1')
 			{
-				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data)] = '0';
-				g_data->map->map_data[get_p_y(g_data) - 1][get_p_x(g_data)] = 'P';
+				g_data->map->map_data[p_y][p_x] = '0';
+				g_data->map->map_data[p_y - 1][p_x] = 'P';
 			}
 	}
-	if (keycode == 87)
+	if (keycode == 1)
 	{
-		if (g_data->map->map_data[get_p_y(g_data) + 1][get_p_x(g_data)] != 'E')
+		if (g_data->map->map_data[p_y + 1][p_x] == 'E')
 			destroy_game(g_data);
-		if (g_data->map->map_data[get_p_y(g_data) + 1][get_p_x(g_data)] != '1')
+		if (g_data->map->map_data[p_y + 1][p_x] != '1')
 			{
-				g_data->map->map_data[get_p_y(g_data)][get_p_x(g_data)] = '0';
-				g_data->map->map_data[get_p_y(g_data) + 1][get_p_x(g_data)] = 'P';
+				g_data->map->map_data[p_y][p_x] = '0';
+				g_data->map->map_data[p_y + 1][p_x] = 'P';
 			}
 	}
 }

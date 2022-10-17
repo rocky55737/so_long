@@ -1,6 +1,7 @@
 #include "./get_next_line/get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
+#include <string.h>
 
 int main(int ac, char **av)
 {
@@ -11,7 +12,7 @@ int main(int ac, char **av)
     buffer = get_next_line(fd);
     while (buffer)
     {
-        printf("%s", buffer);
+        printf("%s %lu", buffer, strlen(buffer));
         buffer = get_next_line(fd);
     }
     return(0);

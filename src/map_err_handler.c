@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:55:40 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/14 19:23:47 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/17 17:25:19 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ static int	map_is_rectangle(char *map_file_path)
 	buffer = trim_nl(get_next_line(fd));
 	while (buffer)
 	{
-		printf("%s %d", buffer, x);
+		printf("%s %zu", buffer, ft_strlen(buffer));
 		if (ft_strlen(buffer) != (size_t)x)
 			return (0);
+		free(buffer);
 		buffer = trim_nl(get_next_line(fd));
 	}
 	close(fd);
@@ -74,12 +75,12 @@ static int	map_has_all_component(char *map_file_path)
 	while (charset[charset_cnt])
 	{
 		fd = map_file_open(map_file_path);
-		buffer = get_next_line(fd);
+		buffer = trim_nl(get_next_line(fd));
 		while (buffer)
 		{
 			if (ft_strchr(buffer, charset[charset_cnt]) != 0)
 				break ;
-			buffer = get_next_line(fd);
+			buffer = trim_nl(get_next_line(fd));
 		}
 		close(fd);
 		if (!buffer)
@@ -98,7 +99,7 @@ static int	map_has_invalid_component(char *map_file_path)
 
 	charset = ft_strdup("01CEP");
 	fd = map_file_open(map_file_path);
-	buffer = get_next_line(fd);
+	buffer = trim_nl(get_next_line(fd));
 	while (buffer)
 	{
 		buffer_cnt = 0;
@@ -108,7 +109,7 @@ static int	map_has_invalid_component(char *map_file_path)
 				return (1);
 			buffer_cnt++;
 		}
-		buffer = get_next_line(fd);
+		buffer = trim_nl(get_next_line(fd));
 	}
 	close(fd);
 	return (0);

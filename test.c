@@ -16,23 +16,22 @@ int	main(int ac, char **av)
 	void	*mlx_win;
 	void	*arg[2];
 	void	*img;
-	char	*relative_path = "./sprites/Tilesets/Grass.xpm";
+	char	*relative_path = "./assets/etc/t.xpm";
 	int		img_width = 50;
 	int		img_height = 50;
 
 
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 2000, 1000, "test window");
+	mlx_win = mlx_new_window(mlx, 320, 320, "test window");
 	img = mlx_xpm_file_to_image(mlx, relative_path, &img_width, &img_height);
 	
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		for (int j = 0; j < 20; j++)
-			mlx_put_image_to_window(mlx, mlx_win, img, i * 30, j * 30);
+		for (int j = 0; j < 10; j++)
+			mlx_put_image_to_window(mlx, mlx_win, img, i * 32, j * 32);
 	}
 	arg[0] = mlx;
 	arg[1] = mlx_win;
-	mlx_mouse_hook(mlx_win, destroy_so_long, arg);
 	//red x button pressed
 	mlx_hook(mlx_win, 17, 0, destroy_so_long, arg);
 	mlx_loop(mlx);

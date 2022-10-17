@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:37:44 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/14 18:53:52 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/17 19:02:42 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_map	*get_map(char *map_file_path)
 {
 	t_map	*map;
 
-	map_err_handler(map_file_path);
+	//map_err_handler(map_file_path);
 	map = (t_map *)malloc(sizeof(t_map));
 	malloc_null_guard((void *)map);
 	map->x = get_map_x(map_file_path);
@@ -73,17 +73,18 @@ char	**get_map_data(char *map_file_path, int map_y)
 	char	**map_data;
 	int		map_fd;
 	char	*buffer;
+	int		y_cnt;
 
 	map_data = (char **)malloc(sizeof(char *) * (map_y + 1));
 	malloc_null_guard((void *)map_data);
 	map_fd = map_file_open(map_file_path);
-	buffer = get_next_line(map_fd);
-	map_y = 0;
-	while (buffer)
+	buffer = trim_nl(get_next_line(map_fd));
+	y_cnt = 0;
+	while (y_cnt < map_y)
 	{
-		map_data[map_y] = trim_nl(buffer);
-		buffer = get_next_line(map_fd);
-		map_y++;
+		map_data[y_cnt] = buffer;
+		buffer = trim_nl(get_next_line(map_fd));
+		y_cnt++;
 	}
 	map_data[map_y] = 0;
 	close(map_fd);
