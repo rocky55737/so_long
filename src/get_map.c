@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:37:44 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/17 19:02:42 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/18 17:25:51 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ t_map	*get_map(char *map_file_path)
 {
 	t_map	*map;
 
-	//map_err_handler(map_file_path);
 	map = (t_map *)malloc(sizeof(t_map));
 	malloc_null_guard((void *)map);
 	map->x = get_map_x(map_file_path);
 	map->y = get_map_y(map_file_path);
 	map->map_data = get_map_data(map_file_path, map->y);
+	map_err_handler(map);
 	return (map);
 }
 
