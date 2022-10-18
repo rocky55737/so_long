@@ -1,142 +1,133 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_err_handler.c                                  :+:      :+:    :+:   */
+/*   map_err_handler_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:55:40 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/17 17:25:19 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/18 17:58:27 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void		map_err_handler(char *map_file_path);
-static int	map_is_rectangle(char *map_file_path);
-static int	map_has_all_component(char *map_file_path);
-static int	map_has_invalid_component(char *map_file_path);
-static int	map_is_surrounded_by_wall(char *map_file_path);
+void		map_err_handler(t_map *map);
+static int	map_is_rectangle(t_map *map);
+static int	map_has_all_component(t_map *map);
+static int	map_has_invalid_component(t_map *map);
+static int	map_is_surrounded_by_wall(t_map *map);
 
-void	map_err_handler(char *map_file_path)
+void	map_err_handler(t_map *map)
 {
-	if (!map_is_rectangle(map_file_path))
+	if (!map_is_rectangle(map))
 	{
 		write_err("so_long: map is not rectangle\n");
 		exit(1);
 	}
-	if (!map_has_all_component(map_file_path))
+	if (!map_has_all_component(map))
 	{
 		write_err("so_long: map should have all component\n");
 		exit(1);
 	}
-	if (map_has_invalid_component(map_file_path))
+	if (map_has_invalid_component(map))
 	{
 		write_err("so_long: map has invalid component\n");
 		exit(1);
 	}
-	if (!map_is_surrounded_by_wall(map_file_path))
+	if (!map_is_surrounded_by_wall(map))
 	{
 		write_err("so_long: map is not surrounded by wall\n");
 		exit(1);
 	}
 }
 
-static int	map_is_rectangle(char *map_file_path)
+static int	map_is_rectangle(t_map *map)
 {
-	int		x;
-	int		fd;
-	char	*buffer;
+	int	y_cnt;
 
-	x = get_map_x(map_file_path);
-	fd = map_file_open(map_file_path);
-	buffer = trim_nl(get_next_line(fd));
-	while (buffer)
+	y_cnt = 0;
+	while (y_cnt < map->y)
 	{
-		printf("%s %zu", buffer, ft_strlen(buffer));
-		if (ft_strlen(buffer) != (size_t)x)
+		if (ft_strlen(map->map_data[y_cnt]) != (size_t)map->x)
 			return (0);
-		free(buffer);
-		buffer = trim_nl(get_next_line(fd));
+		y_cnt++;
 	}
-	close(fd);
 	return (1);
 }
 
-static int	map_has_all_component(char *map_file_path)
+static int	map_has_all_component(t_map *map)
 {
 	char	*charset;
 	int		charset_cnt;
-	char	*buffer;
-	int		fd;
+	int		y_cnt;
 
-	charset = ft_strdup("01CEP");
+	charset = ft_strdup("1CEP");
 	charset_cnt = 0;
 	while (charset[charset_cnt])
 	{
-		fd = map_file_open(map_file_path);
-		buffer = trim_nl(get_next_line(fd));
-		while (buffer)
+		y_cnt = 0;
+		while (y_cnt < map->y)
 		{
-			if (ft_strchr(buffer, charset[charset_cnt]) != 0)
+			if (ft_strchr(map->map_data[y_cnt], charset[charset_cnt]) != 0)
 				break ;
-			buffer = trim_nl(get_next_line(fd));
+			y_cnt++;
 		}
-		close(fd);
-		if (!buffer)
+		if (y_cnt == map->y)
+		{
+			free(charset);
 			return (0);
+		}
 		charset_cnt++;
 	}
+	free(charset);
 	return (1);
 }
 
-static int	map_has_invalid_component(char *map_file_path)
+static int	map_has_invalid_component(t_map *map)
 {
 	char	*charset;
-	char	*buffer;
-	int		buffer_cnt;
-	int		fd;
+	int		y_cnt;
+	int		x_cnt;
 
-	charset = ft_strdup("01CEP");
-	fd = map_file_open(map_file_path);
-	buffer = trim_nl(get_next_line(fd));
-	while (buffer)
+	charset = ft_strdup("01CEPM");
+	y_cnt = 0;
+	while (y_cnt < map->y)
 	{
-		buffer_cnt = 0;
-		while (buffer[buffer_cnt])
+		x_cnt = 0;
+		while (map->map_data[y_cnt][x_cnt])
 		{
-			if (ft_strchr(charset, buffer[buffer_cnt]) == 0)
+			if (ft_strchr(charset, map->map_data[y_cnt][x_cnt]) == 0)
+			{
+				free(charset);
 				return (1);
-			buffer_cnt++;
+			}
+			x_cnt++;
 		}
-		buffer = trim_nl(get_next_line(fd));
+		y_cnt++;
 	}
-	close(fd);
+	free(charset);
 	return (0);
 }
 
-static int	map_is_surrounded_by_wall(char *map_file_path)
+static int	map_is_surrounded_by_wall(t_map *map)
 {
-	int		x;
-	int		y;
-	char	**map_data;
 	int		x_cnt;
 	int		y_cnt;
 
-	x = get_map_x(map_file_path);
-	y = get_map_y(map_file_path);
-	map_data = get_map_data(map_file_path, y);
 	x_cnt = 0;
-	while (x_cnt < x)
+	while (x_cnt < map->x)
 	{
-		if (map_data[0][x_cnt] != '1' || map_data[y][x_cnt] != '1')
+		if (map->map_data[0][x_cnt] != '1' || \
+		map->map_data[map->y - 1][x_cnt] != '1')
 			return (0);
 		x_cnt++;
 	}
 	y_cnt = 0;
-	while (y_cnt < y)
+	while (y_cnt < map->y)
 	{
-		if (map_data[y_cnt][0] != '1' || map_data[y_cnt][x] != '1')
+		if (map->map_data[y_cnt][0] != '1' || \
+		map->map_data[y_cnt][map->x - 1] != '1')
 			return (0);
 		y_cnt++;
 	}

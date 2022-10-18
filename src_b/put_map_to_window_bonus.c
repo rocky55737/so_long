@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_map_to_window.c                                :+:      :+:    :+:   */
+/*   put_map_to_window_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:54:25 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/17 19:22:18 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/18 18:09:33 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	put_map_to_window(t_game_data *g_d)
 	}
 	put_elements(g_d);
 	put_player_to_window(g_d);
-
 }
 
 void	put_elements(t_game_data *g_d)

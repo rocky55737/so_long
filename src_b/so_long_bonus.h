@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:32 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/17 20:35:43 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/18 18:58:26 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_game_data
 	t_img	imgs[5];
 	t_img	p_imgs[8];
 	int		p_state;
-	int		m_state;
+	int		time;
 	void	*mlx;
 	void	*win;
 	int		mov_cnt;
@@ -60,7 +60,7 @@ int		get_map_x(char *map_file_path);
 int		get_map_y(char *map_file_path);
 char	**get_map_data(char *map_file_path, int map_y);
 
-void	map_err_handler(char *map_file_path);
+void	map_err_handler(t_map *map);
 
 int		destroy_game(t_game_data *g_data);
 
@@ -71,10 +71,13 @@ void	set_p_imgs(t_game_data *g_d);
 void	put_map_to_window(t_game_data *g_d);
 int		update_window(int keycode, t_game_data *g_data);
 
+int		patrol_monster(t_game_data *g_d);
+
 char	*trim_nl(char *str);
 
 void	so_long(int ac, char **av);
 void	img_err_handler(t_game_data *g_d);
+void	p_img_err_hander(t_game_data *g_d);
 
 int		get_p_x(t_game_data *g_data);
 int		get_p_y(t_game_data *g_data);
