@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:32 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/17 20:35:43 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/18 17:39:14 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		get_map_x(char *map_file_path);
 int		get_map_y(char *map_file_path);
 char	**get_map_data(char *map_file_path, int map_y);
 
-void	map_err_handler(char *map_file_path);
+void	map_err_handler(t_map	*map);
 
 int		destroy_game(t_game_data *g_data);
 
