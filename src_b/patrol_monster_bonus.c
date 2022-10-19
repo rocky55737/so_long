@@ -18,21 +18,25 @@ void	monster_right(t_game_data *g_d);
 
 int	patrol_monster(t_game_data *g_d)
 {
+	char	*buffer;
+
 	g_d->time++;
 	if (g_d->time == 10000)
 	{
+		buffer = ft_itoa(g_d->mov_cnt);
 		monster_left(g_d);
 		put_map_to_window(g_d);
-		mlx_string_put(g_d->mlx, g_d->win, 3, 3, 0, ft_itoa(g_d->mov_cnt));
-		return (0);
+		mlx_string_put(g_d->mlx, g_d->win, 3, 3, 0, buffer);
+		free(buffer);
 	}
 	else if (g_d->time == 20000)
 	{
+		buffer = ft_itoa(g_d->mov_cnt);
 		monster_right(g_d);
 		put_map_to_window(g_d);
-		mlx_string_put(g_d->mlx, g_d->win, 3, 3, 0, ft_itoa(g_d->mov_cnt));
+		mlx_string_put(g_d->mlx, g_d->win, 3, 3, 0, buffer);
+		free(buffer);
 		g_d->time = 0;
-		return (0);
 	}
 	return (0);
 }
