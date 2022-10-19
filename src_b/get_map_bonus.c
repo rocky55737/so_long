@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:37:44 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/18 17:51:32 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/19 21:16:41 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ int	get_map_x(char *map_file_path)
 
 	map_fd = map_file_open(map_file_path);
 	buffer = trim_nl(get_next_line(map_fd));
+	if (!buffer)
+	{
+		write_err("so_long: map is empty\n");
+		exit(1);
+	}
 	x = ft_strlen(buffer);
 	close(map_fd);
 	free(buffer);
