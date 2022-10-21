@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:32 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/18 17:39:14 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/21 15:38:13 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,36 +46,26 @@ typedef struct s_game_data
 }	t_game_data;
 
 void	sl_input_err_handler(int ac, char **av);
-
 void	write_err(char	*err_msg);
-
 void	malloc_null_guard(void *ptr);
-
 t_map	*get_map(char *map_file_path);
 int		map_file_open(char *map_file_path);
 int		get_map_x(char *map_file_path);
 int		get_map_y(char *map_file_path);
 char	**get_map_data(char *map_file_path, int map_y);
-
 void	map_err_handler(t_map	*map);
-
+int		map_has_more_p(t_map *map);
 int		destroy_game(t_game_data *g_data);
-
 int		button_event_handler(int keycode, t_game_data *g_data);
 void	set_imgs(t_game_data *g_d);
-
 void	put_map_to_window(t_game_data *g_d);
 int		update_window(int keycode, t_game_data *g_data);
-
 char	*trim_nl(char *str);
-
 void	so_long(int ac, char **av);
 void	img_err_handler(t_game_data *g_d);
-
 int		get_p_x(t_game_data *g_data);
 int		get_p_y(t_game_data *g_data);
 void	move_character(int keycode, t_game_data *g_data);
-
 int		clear_the_game(t_game_data *g_d);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:55:40 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/18 17:58:27 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/21 15:36:05 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ void	map_err_handler(t_map *map)
 	if (!map_is_surrounded_by_wall(map))
 	{
 		write_err("so_long: map is not surrounded by wall\n");
+		exit(1);
+	}
+	if (map_has_more_p(map))
+	{
+		write_err("so_long: the player should be one\n");
 		exit(1);
 	}
 }
