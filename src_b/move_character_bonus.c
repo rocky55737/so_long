@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 20:18:47 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/18 17:48:26 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/21 16:28:33 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	move_left(t_game_data *g_data)
 	}
 	else if (g_data->map->map_data[p_y][p_x - 1] != '1')
 	{
+		g_data->mov_cnt++;
 		g_data->map->map_data[p_y][p_x] = '0';
 		g_data->map->map_data[p_y][p_x - 1] = 'P';
 		if (g_data->p_state != 4)
@@ -75,6 +76,7 @@ void	move_right(t_game_data *g_data)
 	}
 	else if (g_data->map->map_data[p_y][p_x + 1] != '1')
 	{
+		g_data->mov_cnt++;
 		g_data->map->map_data[p_y][p_x] = '0';
 		g_data->map->map_data[p_y][p_x + 1] = 'P';
 		if (g_data->p_state != 6)
@@ -102,6 +104,7 @@ void	move_up(t_game_data *g_data)
 	}
 	else if (g_data->map->map_data[p_y - 1][p_x] != '1')
 	{
+		g_data->mov_cnt++;
 		g_data->map->map_data[p_y][p_x] = '0';
 		g_data->map->map_data[p_y - 1][p_x] = 'P';
 		if (g_data->p_state != 2)
@@ -129,6 +132,7 @@ void	move_down(t_game_data *g_data)
 	}
 	else if (g_data->map->map_data[p_y + 1][p_x] != '1')
 	{
+		g_data->mov_cnt++;
 		g_data->map->map_data[p_y][p_x] = '0';
 		g_data->map->map_data[p_y + 1][p_x] = 'P';
 		if (g_data->p_state != 0)

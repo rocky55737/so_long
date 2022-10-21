@@ -6,7 +6,7 @@
 /*   By: rhong <rhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:37:44 by rhong             #+#    #+#             */
-/*   Updated: 2022/10/19 21:16:11 by rhong            ###   ########.fr       */
+/*   Updated: 2022/10/21 16:24:36 by rhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,15 @@ char	**get_map_data(char *map_file_path, int map_y)
 	map_data = (char **)malloc(sizeof(char *) * (map_y + 1));
 	malloc_null_guard((void *)map_data);
 	map_fd = map_file_open(map_file_path);
-	buffer = trim_nl(get_next_line(map_fd));
 	y_cnt = 0;
-	while (y_cnt < map_y)
+	while (y_cnt < map_y - 1)
 	{
-		map_data[y_cnt] = buffer;
 		buffer = trim_nl(get_next_line(map_fd));
+		map_data[y_cnt] = buffer;
 		y_cnt++;
 	}
+	buffer = get_next_line(map_fd);
+	map_data[y_cnt] = buffer;
 	map_data[map_y] = 0;
 	close(map_fd);
 	return (map_data);
